@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url(y2.jpeg);
+            background-size: cover;
+            text-align: left;
+            padding: 50px;
+        }
+        .container {
+            background: rgba(216, 223, 199, 0.7);
+            padding: 50px;
+            border-radius: 20px;
+            width: 350px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(43, 39, 39, 0.2);
+            position: absolute; 
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .container img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sign In Image -->
+        <img src="traeee.png" alt="Sign In">
+        
+        <!-- Title -->
+        <h2>Sign In</h2>
+        
+        <!-- Form -->
+        <form id="loginForm">
+            <label for="name">User name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="hobbies">Hobbies:</label>
+            <input type="text" id="hobbies" name="hobbies" required>
+            
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+            
+            <label for="bday">Birthday:</label>
+            <input type="date" id="bday" name="bday" required>
+
+            <p class="error" id="error-message">⚠️ Error: Age does not match the birthdate.</p>
+            
+            <button type="submit">Enter</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            let ageInput = document.getElementById("age").value;
+            let bdayInput = document.getElementById("bday").value;
+            let errorMessage = document.getElementById("error-message");
+    
+            let birthDate = new Date(bdayInput);
+            let today = new Date();
+            let calculatedAge = today.getFullYear() - birthDate.getFullYear();
+    
+            let monthDiff = today.getMonth() - birthDate.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                calculatedAge--;
+            }
+    
+            if (calculatedAge != ageInput) {
+                errorMessage.style.display = "block";
+                event.preventDefault(); // ❌ Stop form submission
+            } else {
+                errorMessage.style.display = "none";
+                event.preventDefault(); // ❌ Prevent page refresh
+                window.location.href = "homepage.html"; // ✅ Redirect to homepage
+            }
+        });
+    </script>
+    

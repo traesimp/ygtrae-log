@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YG Trae - Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: #f4f4f4;
+            text-align: center;
+        }
+        /* 🔹 NAVIGATION BAR */
+        .navbar {
+            background: #007BFF;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+        .navbar a:hover {
+            background: #0056b3;
+            border-radius: 5px;
+        }
+        /* 🔹 MAIN CONTENT */
+        .content {
+            margin-top: 80px; /* Para di matakpan ng navbar */
+            padding: 20px;
+        }
+        /* 🔹 SHOE ANIMATION */
+        .shoe-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .shoe {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            animation: float 3s infinite alternate ease-in-out;
+        }
+        /* 🔹 FLOAT ANIMATION */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🔹 NAVIGATION BAR -->
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Pictures</a>
+        <a href="#">Inbox</a>
+        <a href="#">Shop</a>
+    </div>
+
+    <!-- 🔹 MAIN CONTENT -->
+    <div class="content">
+        <h1>Welcome to YG Trae Homepage</h1>
+        <p>Check out these amazing shoes!</p>
+
+        <!-- 🔹 SHOES ANIMATION  -->
+        <div class="shoe-container">
+            <img src="shoe1.jpeg" alt="Shoe 1" class="shoe">
+            <img src="shoe2.jpeg" alt="Shoe 2" class="shoe">
+            <img src="shoe3.jpeg" alt="Shoe 3" class="shoe">
+        </div>
+    </div>
+
+</body>
+</html>
